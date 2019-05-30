@@ -1,0 +1,13 @@
+
+SELECT service_provided.company_id,service_provided.service_id,SUM(service_provided.service_id) AS Total_service ,SUM( service_master.service_cost ) AS service_cost FROM service_master INNER JOIN service_provided ON service_master.id = service_provided.service_id GROUP BY service_provided.company_id,service_provided.service_id
+
+SELECT service_provided.company_id,service_provided.service_id,SUM(service_provided.service_id) AS Total_service ,SUM( service_master.service_cost ) AS service_cost FROM service_master INNER JOIN service_provided ON service_master.id = service_provided.service_id GROUP BY service_provided.company_id
+
+
+
+select  name,
+  sum(case when subject = 'php' then marks else 0 end) php,
+  sum(case when subject = 'java' then marks else 0 end) java,
+  sum(case when subject = 'android' then marks else 0 end) android
+from students
+group by name
